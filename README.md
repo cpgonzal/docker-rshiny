@@ -21,7 +21,7 @@ This repository contains **Dockerfile** for [Docker](https://www.docker.com/)'s 
 #### Run `cpgonzal/docker-rshiny` container with persistent shared directories 
 
     # ONLY THE FIRST TIME TO INSTALL REQUIRED R LIBRARIES
-    docker run --rm --name rshiny-dock -e USERID=`id -u $USER` -e ROOT=TRUE -v <data-dir>:/data -v <libraries-dir>:/libraries cpgonzal/docker-rshiny &
+    docker run --rm --name rshiny-dock -e USERID=`id -u $USER` -v <data-dir>:/data -v <libraries-dir>:/libraries cpgonzal/docker-rshiny &
     docker exec -it -u rshiny rshiny-dock /bin/bash /usr/local/lib/R/etc/install_pkgs.sh
     docker stop rshiny-dock
 
