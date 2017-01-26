@@ -26,6 +26,6 @@ This repository contains **Dockerfile** for [Docker](https://www.docker.com/)'s 
     docker stop rshiny-dock
 
     # NEXT TIME 
-    docker run --rm -it -p 3838:3838 -e USERID=`id -u $USER` -e ROOT=TRUE -v <data-dir>:/data -v <libraries-dir>:/libraries cpgonzal/docker-rshiny /bin/bash
+    docker run --rm --name rshiny-doc -p 3838:3838 -e USERID=`id -u $USER` -v <data-dir>:/data -v <libraries-dir>:/libraries cpgonzal/docker-rshiny &
     # open http://<ip-address>:3838
     docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)  
