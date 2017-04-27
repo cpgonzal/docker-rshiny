@@ -3,6 +3,7 @@
 USER=${USER:=shiny}
 PASSWORD=${PASSWORD:=shiny}
 USERID=${USERID:=1000}
+PORT=${PORT:=3838}
 DATA_ROOT=${DATA_ROOT:=/data}
 LIBS_ROOT=${LIBS_ROOT:=/libraries}
 
@@ -47,7 +48,7 @@ echo     "run_as shiny; " >> /etc/shiny-server/shiny-server.conf
 echo     "# Define a top-level server which will listen on a port " >> /etc/shiny-server/shiny-server.conf
 echo     "server { " >> /etc/shiny-server/shiny-server.conf
 echo     "# Instruct this server to listen on port 80. The app at dokku-alt need expose PORT 80, or 500 e etc. See the docs " >> /etc/shiny-server/shiny-server.conf
-echo     "listen 3838; " >> /etc/shiny-server/shiny-server.conf
+echo     "listen $PORT; " >> /etc/shiny-server/shiny-server.conf
 echo     "# Define the location available at the base URL " >> /etc/shiny-server/shiny-server.conf
 echo     "location / { " >> /etc/shiny-server/shiny-server.conf
 echo     "# Run this location in 'site_dir' mode, which hosts the entire directory " >> /etc/shiny-server/shiny-server.conf
